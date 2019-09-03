@@ -3,6 +3,9 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using CarouselView.FormsPlugin.Android;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Plugin.CurrentActivity;
 using Plugin.XSnack;
 using Sharpnado.Presentation.Forms.Droid;
@@ -11,9 +14,7 @@ using TailwindTraders.Mobile.Droid.Helpers;
 using TailwindTraders.Mobile.Features.Scanning;
 using TailwindTraders.Mobile.Features.Scanning.Photo;
 using Xamarin.Forms;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
+
 
 namespace TailwindTraders.Mobile.Droid
 {
@@ -31,11 +32,8 @@ namespace TailwindTraders.Mobile.Droid
 
             base.OnCreate(savedInstanceState);
 
-AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003",
-                   typeof(Analytics), typeof(Crashes));
-AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003",
-                   typeof(Analytics), typeof(Crashes));
-                   
+            AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003", typeof(Analytics), typeof(Crashes));
+                  
             InitRenderersAndServices(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
