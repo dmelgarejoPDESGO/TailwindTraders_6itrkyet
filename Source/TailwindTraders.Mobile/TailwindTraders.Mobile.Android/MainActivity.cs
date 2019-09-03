@@ -11,6 +11,9 @@ using TailwindTraders.Mobile.Droid.Helpers;
 using TailwindTraders.Mobile.Features.Scanning;
 using TailwindTraders.Mobile.Features.Scanning.Photo;
 using Xamarin.Forms;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace TailwindTraders.Mobile.Droid
 {
@@ -28,6 +31,11 @@ namespace TailwindTraders.Mobile.Droid
 
             base.OnCreate(savedInstanceState);
 
+AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003",
+                   typeof(Analytics), typeof(Crashes));
+AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003",
+                   typeof(Analytics), typeof(Crashes));
+                   
             InitRenderersAndServices(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
