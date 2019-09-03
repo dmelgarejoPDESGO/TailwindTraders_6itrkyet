@@ -14,6 +14,7 @@ using TailwindTraders.Mobile.Droid.Helpers;
 using TailwindTraders.Mobile.Features.Scanning;
 using TailwindTraders.Mobile.Features.Scanning.Photo;
 using Xamarin.Forms;
+
 namespace TailwindTraders.Mobile.Droid
 {
     [Activity(
@@ -26,15 +27,25 @@ namespace TailwindTraders.Mobile.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
+            
             ToolbarResource = Resource.Layout.Toolbar;
+            
             base.OnCreate(savedInstanceState);
-            AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003", typeof(Analytics), typeof(Crashes));               
+            
+            AppCenter.Start("42ab2cbf-5bbc-440b-bb35-0fe203efa003", typeof(Analytics), typeof(Crashes));
+            
             InitRenderersAndServices(savedInstanceState);
+            
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            
             Forms.SetFlags(new[] { "CollectionView_Experimental", "Shell_Experimental", "Visual_Experimental" });
+            
             Forms.Init(this, savedInstanceState);
+            
             RegisterPlatformServices();
+            
             InitTensorflowService();
+            
             LoadApplication(new App());
         }
 
